@@ -1,5 +1,5 @@
+import { Product } from "./common.type";
 import { productsList } from "./json-dummy/products-list";
-import { Product } from "./types";
 
 export class ProductsRepository {
   private products: Product[] = productsList;

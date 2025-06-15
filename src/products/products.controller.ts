@@ -1,7 +1,8 @@
 import { Body, Controller, Get, Param, Post, Put, Res } from '@nestjs/common';
 import { ProductService } from './products.service';
-import { CreateProductRequest, Product, UpdateProductRequest } from './types';
+import { CreateProductRequest, UpdateProductRequest } from './conditional.types';
 import { Response } from "express";
+import { Product } from './common.type';
 
 @Controller('products')
 export class ProductsController {

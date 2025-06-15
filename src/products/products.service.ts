@@ -1,7 +1,8 @@
 import { isValidCreateProduct } from "src/utils";
 import { ProductsRepository } from "./products.repository";
-import { Product, ProductSearchResult, UpdateProductRequest, ValidationResult } from "./types";
+import { ProductSearchResult, UpdateProductRequest, ValidationResult } from "./conditional.types";
 import { Injectable } from "@nestjs/common";
+import { Product } from "./common.type";
 
 @Injectable()
 export class ProductService {
