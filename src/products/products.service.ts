@@ -1,8 +1,10 @@
-import { isValidCreateProduct } from "src/utils";
 import { ProductsRepository } from "./products.repository";
-import { ProductSearchResult, UpdateProductRequest, ValidationResult } from "./types/conditional.types";
+import { CreateProductRequest, ProductSearchResult, UpdateProductRequest, ValidationResult } from "./types/conditional.types";
 import { Injectable } from "@nestjs/common";
 import { Product } from "./types/common.type";
+import { isDigitalCategory } from "./utils/type-guards";
+import { DIGITAL_DEFAULT_METADATA } from "./constants/common";
+import { isValidCreateProduct } from "./utils/utils";
 
 @Injectable()
 export class ProductService {
@@ -16,14 +18,16 @@ export class ProductService {
     async createProduct(data: unknown): Promise<ValidationResult<Product>> {
     if (!isValidCreateProduct(data)) {
         return {
-        success: false,
-        errors: ['Invalid product data format'],
+            success: false,
+            errors: ['Invalid product data format'],
         } as ValidationResult<never>;
     }
 
+    const baseProduct = data as CreateProductRequest;
     const product: Product = {
         id: `product_${Date.now()}`,
-        ...data,
+        ...baseProduct,
+        metadata:isDigitalCategory(baseProduct.category)? DIGITAL_DEFAULT_METADATA: baseProduct.metadata,
     };
 
     await this.repository.save(product);
@@ -53,8 +57,9 @@ export class ProductService {
         errors: ['Product not found'],
         } as ValidationResult<never>;
     }
-
-    // Deep merge con type safety
+    if (updates.category && isDigitalCategory(updates.category) && !updates.metadata) {
+        updates.metadata = DIGITAL_DEFAULT_METADATA;
+    }
     const updatedProduct: Product = {
         ...existingProduct,
         ...updates,
@@ -79,7 +84,6 @@ export class ProductService {
     async searchProducts(query: string): Promise<ProductSearchResult[]> {
     const products = await this.repository.search(query);
 
-    // Transformación automática a search result format
     return products.map((product) => ({
         id: product.id,
         name: product.name,

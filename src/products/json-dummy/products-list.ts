@@ -1,174 +1,136 @@
 import { Product } from "../types/common.type";
 
- export const productsList: Product[] = [
+const now = Date.now();
+
+export const productsList: Product[] = [
   {
-    "id": "1f8e4c3a-b0f4-4b71-84f5-3ef07bdf5624",
-    "name": "Wireless Mouse",
-    "price": 29.99,
-    "category": "Electronics",
-    "description": "Ergonomic wireless mouse with adjustable DPI and long battery life.",
-    "inStock": true,
-    "tags": ["wireless", "mouse", "electronics", "accessory"],
-    "metadata": {
-      "weight": 0.2,
-      "dimensions": {
-        "width": 6,
-        "height": 3,
-        "depth": 10
-      }
+    id: `product_${now + 1}`,
+    name: "Wireless Headphones",
+    price: 199.99,
+    category: "Audio_Physical",
+    description: "Noise-cancelling over-ear headphones with Bluetooth connectivity.",
+    inStock: true,
+    tags: ["audio", "wireless", "bluetooth"],
+    metadata: {
+      weight: 0.5,
+      dimensions: { width: 18, height: 20, depth: 8 }
     }
   },
   {
-    "id": "c2a1a9c5-8d91-43c3-b6b6-42de02d4e334",
-    "name": "Bluetooth Speaker",
-    "price": 59.99,
-    "category": "Audio",
-    "description": "Compact Bluetooth speaker with deep bass and water resistance.",
-    "inStock": true,
-    "tags": ["bluetooth", "speaker", "audio", "portable"],
-    "metadata": {
-      "weight": 0.5,
-      "dimensions": {
-        "width": 8,
-        "height": 7,
-        "depth": 8
-      }
+    id: `product_${now + 2}`,
+    name: "4K Television",
+    price: 799.99,
+    category: "Electronics_Physical",
+    description: "Smart 4K Ultra HD TV with HDR and built-in streaming apps.",
+    inStock: true,
+    tags: ["tv", "electronics", "4k"],
+    metadata: {
+      weight: 12.5,
+      dimensions: { width: 112, height: 65, depth: 8 }
     }
   },
   {
-    "id": "d3f9ac66-9280-4f64-9cd3-d590f8e3b70c",
-    "name": "Standing Desk",
-    "price": 299.99,
-    "category": "Furniture",
-    "description": "Adjustable height standing desk made of eco-friendly materials.",
-    "inStock": false,
-    "tags": ["desk", "standing", "furniture", "office"],
-    "metadata": {
-      "weight": 25.0,
-      "dimensions": {
-        "width": 120,
-        "height": 75,
-        "depth": 60
-      }
+    id: `product_${now + 3}`,
+    name: "Leather Boots",
+    price: 149.99,
+    category: "Footwear_Physical",
+    description: "Durable and stylish leather boots for all-weather use.",
+    inStock: false,
+    tags: ["boots", "footwear", "leather"],
+    metadata: {
+      weight: 1.2,
+      dimensions: { width: 30, height: 15, depth: 12 }
     }
   },
   {
-    "id": "45b92d1d-4a6e-4f33-9e92-792361e80258",
-    "name": "Running Shoes",
-    "price": 89.99,
-    "category": "Footwear",
-    "description": "Breathable running shoes designed for long-distance comfort.",
-    "inStock": true,
-    "tags": ["shoes", "running", "footwear", "sports"],
-    "metadata": {
-      "weight": 0.8,
-      "dimensions": {
-        "width": 30,
-        "height": 12,
-        "depth": 20
-      }
+    id: `product_${now + 4}`,
+    name: "Men's Jacket",
+    price: 89.5,
+    category: "Clothing_Physical",
+    description: "Water-resistant outdoor jacket with inner lining.",
+    inStock: true,
+    tags: ["jacket", "clothing", "outerwear"],
+    metadata: {
+      weight: 0.8,
+      dimensions: { width: 40, height: 60, depth: 3 }
     }
   },
   {
-    "id": "ea6b0294-4c6a-49ab-86de-0bc4b36f5a3e",
-    "name": "LED Monitor 27\"",
-    "price": 199.99,
-    "category": "Computers",
-    "description": "Full HD 27-inch LED monitor with ultra-thin bezels.",
-    "inStock": true,
-    "tags": ["monitor", "LED", "computer", "display"],
-    "metadata": {
-      "weight": 4.5,
-      "dimensions": {
-        "width": 62,
-        "height": 36,
-        "depth": 5
-      }
+    id: `product_${now + 5}`,
+    name: "Photo Editing Software",
+    price: 59.99,
+    category: "Software_Digital",
+    description: "Professional photo editing software with advanced features.",
+    inStock: true,
+    tags: ["software", "photo", "editing"],
+    metadata: {
+      weight: 0,
+      dimensions: { width: 0, height: 0, depth: 0 }
     }
   },
   {
-    "id": "b5171b2c-29b1-4b78-b3fa-e6e46e3843e0",
-    "name": "Electric Toothbrush",
-    "price": 49.99,
-    "category": "Personal Care",
-    "description": "Rechargeable electric toothbrush with multiple brushing modes.",
-    "inStock": true,
-    "tags": ["toothbrush", "electric", "hygiene", "care"],
-    "metadata": {
-      "weight": 0.3,
-      "dimensions": {
-        "width": 4,
-        "height": 22,
-        "depth": 4
-      }
+    id: `product_${now + 6}`,
+    name: "Fantasy E-Book",
+    price: 9.99,
+    category: "E-books_Digital",
+    description: "Epic fantasy novel in digital format.",
+    inStock: true,
+    tags: ["ebook", "fantasy", "digital"],
+    metadata: {
+      weight: 0,
+      dimensions: { width: 0, height: 0, depth: 0 }
     }
   },
   {
-    "id": "6748e16c-e1a2-4eb7-9a46-fd3c7857757c",
-    "name": "Yoga Mat",
-    "price": 35.00,
-    "category": "Fitness",
-    "description": "Eco-friendly non-slip yoga mat for all levels of practice.",
-    "inStock": false,
-    "tags": ["yoga", "mat", "fitness", "wellness"],
-    "metadata": {
-      "weight": 1.2,
-      "dimensions": {
-        "width": 60,
-        "height": 0.5,
-        "depth": 180
-      }
+    id: `product_${now + 7}`,
+    name: "Music Streaming Subscription",
+    price: 14.99,
+    category: "Streaming_Digital",
+    description: "One-month access to premium music streaming service.",
+    inStock: true,
+    tags: ["streaming", "music", "subscription"],
+    metadata: {
+      weight: 0,
+      dimensions: { width: 0, height: 0, depth: 0 }
     }
   },
   {
-    "id": "75c8e09f-4625-4729-83d2-1c85c2b137ff",
-    "name": "Gaming Keyboard",
-    "price": 79.95,
-    "category": "Electronics",
-    "description": "Mechanical keyboard with RGB lighting and programmable keys.",
-    "inStock": true,
-    "tags": ["keyboard", "gaming", "mechanical", "electronics"],
-    "metadata": {
-      "weight": 1.1,
-      "dimensions": {
-        "width": 45,
-        "height": 5,
-        "depth": 15
-      }
+    id: `product_${now + 8}`,
+    name: "Online Course: Web Development",
+    price: 79.99,
+    category: "Online Courses_Digital",
+    description: "Comprehensive course on modern web development practices.",
+    inStock: true,
+    tags: ["course", "web", "development"],
+    metadata: {
+      weight: 0,
+      dimensions: { width: 0, height: 0, depth: 0 }
     }
   },
   {
-    "id": "e74de10e-0c28-40e9-a3a0-0a4cbdf9e71e",
-    "name": "Smart Watch",
-    "price": 149.99,
-    "category": "Wearables",
-    "description": "Smart watch with heart rate monitor and GPS tracking.",
-    "inStock": true,
-    "tags": ["watch", "smart", "wearables", "fitness"],
-    "metadata": {
-      "weight": 0.25,
-      "dimensions": {
-        "width": 4,
-        "height": 1,
-        "depth": 4
-      }
+    id: `product_${now + 9}`,
+    name: "Bluetooth Speaker",
+    price: 45.0,
+    category: "Audio_Physical",
+    description: "Portable speaker with clear sound and long battery life.",
+    inStock: false,
+    tags: ["speaker", "bluetooth", "portable"],
+    metadata: {
+      weight: 0.6,
+      dimensions: { width: 12, height: 10, depth: 10 }
     }
   },
   {
-    "id": "3d95b62f-5ce2-4b47-9de1-3a4e2901386c",
-    "name": "Espresso Machine",
-    "price": 249.99,
-    "category": "Appliances",
-    "description": "Compact espresso machine with milk frother and pressure control.",
-    "inStock": false,
-    "tags": ["coffee", "espresso", "appliance", "kitchen"],
-    "metadata": {
-      "weight": 5.0,
-      "dimensions": {
-        "width": 25,
-        "height": 30,
-        "depth": 32
-      }
+    id: `product_${now + 10}`,
+    name: "Smartphone",
+    price: 599.0,
+    category: "Electronics_Physical",
+    description: "Latest model with high-resolution camera and fast processor.",
+    inStock: true,
+    tags: ["smartphone", "electronics", "mobile"],
+    metadata: {
+      weight: 0.3,
+      dimensions: { width: 7, height: 15, depth: 0.8 }
     }
   }
-]
+];

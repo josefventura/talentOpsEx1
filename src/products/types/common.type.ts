@@ -1,12 +1,17 @@
+import { ProductCategory } from "./template-literal.types";
+
 export interface Product {
   id: string;
   name: string;
   price: number;
-  category: string;
+  category: ProductCategory;
   description: string;
   inStock: boolean;
   tags: string[];
-  metadata: {
+  metadata: ProductMetadata;
+}
+
+export interface ProductMetadata {
     weight: number;
     dimensions: {
       width: number;
@@ -14,4 +19,3 @@ export interface Product {
       depth: number;
     };
   };
-}

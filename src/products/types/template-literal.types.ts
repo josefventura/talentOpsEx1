@@ -1,58 +1,11 @@
-import { Product } from "./common.type";
+import { ProductCategoryType } from "../constants/common";
 
-export enum eventNames {
-  PRODUCT_CREATED = 'product_created',
-  PRODUCT_UPDATED = 'product_updated',
-}
+type ElectronicCategory = "Electronics" | "Audio";
+type FootwearCategory = "Footwear" | "Clothing";
+type DigitalProductCategory = "Software" | "E-books";
+type DigitalServiceCategory = "Streaming" | "Online Courses";
 
-type EventType = 'product';
-type EventAction = 'created' | 'updated';
+export type PhysicalCategory = `${ElectronicCategory | FootwearCategory}_${ProductCategoryType.PHYSICAL}`;
+export type DigitalCategory = `${DigitalProductCategory | DigitalServiceCategory}_${ProductCategoryType.DIGITAL}`;
+export type ProductCategory = PhysicalCategory | DigitalCategory;
 
-type EventName = `${EventType}_${EventAction}`;
-
-interface EventPayload {
-  product_created: { id: string; name: string };
-  product_updated: { id: string; changes: Partial<Product> };
-}
-
-export class TypeSafeEventEmitter {
-  private listeners: {
-    [K in EventName]?: Array<(payload: EventPayload[K]) => void>
-  } = {};
-  
-  on<T extends EventName>(
-    eventName: T, 
-    listener: (payload: EventPayload[T]) => void
-  ): void {
-    if (!this.listeners[eventName]) {
-      this.listeners[eventName] = [];
-    }
-    this.listeners[eventName]!.push(listener);
-  }
-  
-  emit<T extends EventName>(
-    eventName: T, 
-    payload: EventPayload[T]
-  ): void {
-    const eventListeners = this.listeners[eventName];
-    if (eventListeners) {
-      eventListeners.forEach(listener => listener(payload));
-    }
-  }
-}
-
-
-// const emitter = new TypeSafeEventEmitter();
-
-// emitter.on('user_created', (payload) => {
-//   // payload es automáticamente { userId: string; email: string }
-//   console.log(`New user created: ${payload.email}`);
-// });
-
-// emitter.emit('user_created', { 
-//   userId: 'user_123', 
-//   email: 'john@example.com' 
-// }); // ✅ Type-safe
-
-// emitter.emit('user_created', { userId: 'user_123' }); // ❌ TypeScript error - missing email
-// emitter.emit('invalid_event', { data: 'test' }); // ❌ TypeScript error - invalid event name
