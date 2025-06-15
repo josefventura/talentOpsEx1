@@ -1,4 +1,4 @@
-import { Product } from "./common.type";
+import { Product } from "./types/common.type";
 import { productsList } from "./json-dummy/products-list";
 
 export class ProductsRepository {

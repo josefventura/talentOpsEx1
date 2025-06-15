@@ -1,4 +1,4 @@
-import { CreateProductRequest } from "./products/conditional.types";
+import { CreateProductRequest } from "./products/types/conditional.types";
 
 // Type guards con utility types
 export function isValidCreateProduct(data: unknown): data is CreateProductRequest {
