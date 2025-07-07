@@ -51,12 +51,6 @@ export class ProductService {
         } as ValidationResult<never>;
     }
 
-    if (!existingProduct) {
-        return {
-        success: false,
-        errors: ['Product not found'],
-        } as ValidationResult<never>;
-    }
     if (updates.category && isDigitalCategory(updates.category) && !updates.metadata) {
         updates.metadata = DIGITAL_DEFAULT_METADATA;
     }

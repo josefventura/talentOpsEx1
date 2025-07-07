@@ -98,7 +98,7 @@ export const productsList: Product[] = [
     id: `product_${now + 8}`,
     name: "Online Course: Web Development",
     price: 79.99,
-    category: "Online Courses_Digital",
+    category: "Online-Courses_Digital",
     description: "Comprehensive course on modern web development practices.",
     inStock: true,
     tags: ["course", "web", "development"],
